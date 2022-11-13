@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="">
+   </head>
+   <body>
+      {% comment %} <form method="POST"  action="upload_file">
+         <input type="file"  name="my_uploaded_file"/> # define a 'name' attribute 
+    <input type="submit" value="Submit" />
+      </form> {% endcomment %}
+      <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         <input type="file" name="document" id="document" required="required">
+         <button id="submit" class="btn-primary"> Upload</button>
+         
+
+
+
+
+      <script src="" async defer></script>
+   </body>
+</html>

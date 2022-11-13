@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Website</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet"> -->
+    <script src="https://kit.fontawesome.com/01a3597b80.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- navbar section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">Predict.io</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links" id="home-page">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#about" class="navbar__links" id="about-page">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#services" class="navbar__links" id="services-page">Contact</a>
+                </li>
+                {% if user.is_authenticated %}
+                <a href="indexx"><button class="upload__btn">Upload</button></a>
+                {% else %}
+                <a href="login"><button class="upload__btn">Upload</button></a>
+                {% endif %}
+                <i class="fa-solid fa-moon dark-mode__icon"></i>
+                <li class="navbar__login">
+                    {% if user.is_authenticated %}
+                    <a href="logout" class="logout" id="logout">Logout</a>
+                    {% else %}
+                    <a href="login" class="login" id="login">Login</a>
+                    {% endif %}
+                    <!-- please note that sign up is not a button it's class is button -->
+                </li>
+                {% if user.is_authenticated %}
+                {% else %}
+                <li class="navbar__sign-up">
+                    <a href="register" class="sign-up" id="signup">Sign Up</a>
+                    <!-- please note that sign up is not a button it's class is button -->
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!-- home section -->
+    <div class="hero" id="home">
+        <div class="hero__container">
+            <h1 class="hero__heading">Predict your <br><span>Data!</span>
+            </h1>
+            <span class="give_space">
+            </span>
+            <!-- <p class="hero__description">Add Revenue.<br>Subtract Costs.</p> -->
+            <div class="hero__description2" id="secondary__background">
+                <span class="text"><h1>Add Revenue.<br>Subtract Costs.</h1>
+                    <br><p class="prediction__para">Accurately predicting the future is critical for any business. The relationship between inputs and outputs can be very complex, and historical information is often the key to unlocking it. What can your data tell you about potential outcomes, and the key indicators you should influence? <span class="highlight__text">Predictive neural networks</span> provide intelligent, pattern recognition analysis of your organization’s data using machine learning.</p>
+                </span>
+                <img class="neural-network__img" src="/neural network pic.jpg.webp" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- banner -->
+    <div class="banner">
+        <div class="banner__logo"><i class="fa-solid fa-circle-exclamation fa-2xl move-logo"></i></div>
+        <span class="banner__text">It's time to MAKE Informed Predictions and Forecasts.</span>
+    </div>
+
+    <!-- About section -->
+    <div class="main" id="about">
+        <div class="main__container">
+            <div class="main__img">
+                <img class="img-size" src="https://149711173.v2.pressablecdn.com/wp-content/uploads/Predictive-Neural-Networks-img2.jpg" alt="">
+            </div>
+            <div class="main__content">
+                <span class="main__content-heading">Turn insights into actions that improve your sales</span>
+                <div class="main__content-content">
+                    <ul>
+                        <li>Sales forecasting helps you to estimate your revenue and optimize your sales performance.</li>
+                        <li>Manage deals more effieciently.</li>
+                        <li>Take the guesswork out of forecasting.</li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src=app.js></script>
+</body>
+</html>

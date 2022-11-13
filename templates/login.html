@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Log in </title>
+  </head>
+
+  <body>
+    <h1> Log in </h1>
+    {% for message in messages %}
+<style>
+   h5{
+      color:red;
+   }
+</style>   
+<h5>{{message}}</h5>
+{% endfor %}
+
+
+    <!-- POST method used here to hide query parameters/values -->
+    <form action="login" method="POST">
+      {% csrf_token %}
+      
+      <p> Username </p>
+      <input type="text" name="username">
+      
+      <p> Password: </p>
+      <input type="password" name="password"> <br>
+      
+      <input type="submit" name="submit" value="Log in">
+      
+    </form>
+
+    <br>
+    <button onclick="window.location.href='index.html'"> Back </button>
+      
+  </body>
+
+</html>

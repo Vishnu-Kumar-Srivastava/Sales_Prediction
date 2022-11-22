@@ -166,7 +166,7 @@ def ML(email,file):
    model.summary()
 
    model.compile(loss=tf.keras.losses.mse,optimizer=tf.keras.optimizers.Adam(lr=0.001))
-   model.fit(generator,epochs=250,batch_size=30)
+   model.fit(generator,epochs=150,batch_size=30)
 
    first_eval_batch=final3[-n_input:,:,np.newaxis]
    current_batch = first_eval_batch.reshape((1, n_input, n_features))

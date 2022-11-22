@@ -1,0 +1,64 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#vs code files
+*.vscode
+__pycache__
+
+#environment variables
+.env
+
+#database folder
+database
+
+#virtual environment
+venv
+
+#static files root directory
+/static
+
+#media files root
+/media
+/YOLO
+/pics
+#ssl certificates
+privkey.pem
+cert.pem
+
+#docker-compose file
+docker-compose.yml
+
+#error logs
+logs
+YOLO
+pics

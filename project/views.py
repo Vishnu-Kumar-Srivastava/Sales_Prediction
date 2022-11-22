@@ -7,6 +7,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from .models import Feature
+from django.contrib.auth.decorators import login_required
 from .models import Filename
 import os
 import pandas as pd
@@ -93,7 +94,7 @@ def upload_file(request):
                      
       else:
          return redirect('index')
-
+@login_required(login_url='/login')
 def indexx(request):
    
    context={}

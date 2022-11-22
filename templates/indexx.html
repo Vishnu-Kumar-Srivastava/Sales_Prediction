@@ -1,31 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title></title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="">
-   </head>
-   <body>
-      {% comment %} <form method="POST"  action="upload_file">
-         <input type="file"  name="my_uploaded_file"/> # define a 'name' attribute 
-    <input type="submit" value="Submit" />
-      </form> {% endcomment %}
-      <form method="POST" enctype="multipart/form-data">
-         {% csrf_token %}
-         <input type="file" name="document" id="document" required="required">
-         <button id="submit" class="btn-primary"> Upload</button>
-         
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'upload.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
+    <title>Prediction Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&family=Romanesco&family=Sonsie+One&display=swap');
+    </style>
+</head>
 
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index" id="navbar__logo">Predict.io</a>
+    </nav>
+    <div class="upload__container">
+        <div class="upload__container-heading">
+            <h1>Upload your file</h1>
+            <p>[Do make sure file is of the form .csv]</p>
+        </div>
+        <div class="wrapper">
+             {% comment %} <form method="POST" action="indexx" enctype="multipart/form-data>
+             {% csrf_token %}
+                 <input type="file" name="document" id="document" required="required">  {% endcomment %}
+                 <form method="POST" action="indexx" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    <input type="file" name="document" id="document" required="required">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Browse File to Upload</p>
+           
+            {% for message in messages %}
+            <style>
+                h5 {
+                    color: red;
+                }
+            </style>
+            <h5>{{message}}</h5>
+            {% endfor %}
+        </div>
+        <div class="button__container">
+            <button class="button" type="submit" role="button" >Upload</button>
+        </div>
+    </div>
+</form>
+</body>
 
-      <script src="" async defer></script>
-   </body>
 </html>

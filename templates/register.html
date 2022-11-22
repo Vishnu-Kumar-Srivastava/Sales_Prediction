@@ -1,23 +1,85 @@
-Sign up below
-{% for message in messages %}
-<style>
-   h5{
-      color:red;
-   }
-</style>   
-<h5>{{message}}</h5>
-{% endfor %}
-<form method= "POST" action="register">
-   {% csrf_token %}
-   <p>Username:</p>
-   <input type='text' name="username"/>
-   <p>email</p>
-   <input type="Email" name="email"/>
-   <p>Enter the password</p>
-   <input type="password" name="password">
-   <p>Repeat the password</p>
-   <input type="password" name="password2">
-   <br>
-   <br>
-   <input type="submit">
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'sign_up.css' %}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Prediction Website</title>
+</head>
+
+<body>
+    
+    
+    <nav>
+        <div class="navbar__container">
+            <a href="index" id="navbar__logo">Predict.io</a>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="main__img-container">
+                <img class="welcome-back__img" src="https://img.freepik.com/free-vector/welcome-word-flat-cartoon-people-characters_81522-4207.jpg?w=1380&t=st=1667629748~exp=1667630348~hmac=7640379886faf703c2a57790e69b26352cbde4e28dcadf46cacf670a81333884" alt="">
+            </div>
+            <div class="main__content-container">
+                <!-- right side -->
+                <div class="content-heading">
+                    <h1 class="main__content-heading">Welcome :)</h1>
+                </div>
+                <div class="main__content-para">
+                    <p class="main__content-para">In order to upload your documents you must<br> Sign up with your valid username and password</p>
+                </div>
+                <!-- main place -->
+                <div class="main__form-container">
+                    <div class="forms">
+                        <!-- Registration Form -->
+                        <div class="form login">
+                            <span class="title">Sign Up</span>
+                            <form method="POST" action="register">
+                                {% csrf_token %}
+                                <div class="input-field">
+                                    <input type="text" placeholder="Enter your name" required name="username">
+                                    <i class="uil uil-user"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="Email" placeholder="Enter your email" name="email" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" class="password" placeholder="Create a password" name="password" required>
+                                    <i class="uil uil-lock icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" class="password" placeholder="Confirm a password" name="password2" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                </div>
+                                {% for message in messages %}
+                                <style>
+                                    h5 {
+                                        color: red;
+                                    }
+                                </style>
+                                <h5>{{message}}</h5>
+                                {% endfor %}
+                                <div class="input-field button">
+                                    <input type="submit" value="Signup" >
+                                </div>
+                            </form>
+
+                            <div class="login-signup">
+                                <span class="text">Already a member?
+                                    <a href="login" class="text signup-link">Login Now</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>

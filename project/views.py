@@ -7,6 +7,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from .models import Feature
+from .models import Filename
 import os
 import pandas as pd
 from tensorflow.keras.models import Sequential
@@ -78,23 +79,20 @@ def upload(request):
    
    return redirect('upload_file')
 
-def upload_file(request):
-   print("1\n\n")
+def upload_file(request): 
    def upload_file(request):
-      print(2)
-      print()
+      
       if request.method == "POST":
-        my_uploaded_file = request.FILES['my_uploaded_file'].read() # get the uploaded file
-        print(3)
-        print()
-        f=open(my_uploaded_file)
-        print(4)
-        print()
-        print(f.readlines())
-        return render(request,"<h1> Successful</h1>")
+         document = request.FILES.get('document') # get the uploaded file
+         # is_private = request.POST.get('is_private', False);
+         
+
+         # print(f.readlines())
+         indexx(request)
+         return redirect('index')
                      
       else:
-         return render(request, '<h1> unsuccessful</h1>')
+         return redirect('index')
 
 def indexx(request):
    
@@ -103,7 +101,9 @@ def indexx(request):
    if request.method == 'POST':
       uploaded_file = request.FILES['document']
 
-      print(uploaded_file)
+      print(uploaded_file.name)
+      
+    
       print(request.user.email)
       
       if uploaded_file.name.endswith('.csv'):
@@ -115,13 +115,13 @@ def indexx(request):
          #know where to save the file
          d = os.getcwd() #current directory of the project
          file_directory = d+'\media\\'+name
-         ML(request.user.email)
+         ML(request.user.email,uploaded_file.name)
          return redirect(index)
       
    return render(request, 'indexx.html')
 
-def ML(email):
-   df=pd.read_csv(r"C:\Users\DELL\Desktop\software project\Sales_Prediction\media\Sales_final.csv")
+def ML(email,file):
+   df=pd.read_csv(f"C:\\Users\\vishnu\\Desktop\\preddict\\Sales_Prediction\\media\\{file}")
 
    df.columns=["Date","Holiday","Avg. % ad spend of gross revenue","Avg. % discount","Sales"]
 
@@ -166,7 +166,7 @@ def ML(email):
    model.summary()
 
    model.compile(loss=tf.keras.losses.mse,optimizer=tf.keras.optimizers.Adam(lr=0.001))
-   model.fit(generator,epochs=20,batch_size=30)
+   model.fit(generator,epochs=160,batch_size=30)
 
    first_eval_batch=final3[-n_input:,:,np.newaxis]
    current_batch = first_eval_batch.reshape((1, n_input, n_features))

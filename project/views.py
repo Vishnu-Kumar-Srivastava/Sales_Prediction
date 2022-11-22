@@ -166,7 +166,7 @@ def ML(email,file):
    model.summary()
 
    model.compile(loss=tf.keras.losses.mse,optimizer=tf.keras.optimizers.Adam(lr=0.001))
-   model.fit(generator,epochs=100,batch_size=30)
+   model.fit(generator,epochs=250,batch_size=30)
 
    first_eval_batch=final3[-n_input:,:,np.newaxis]
    current_batch = first_eval_batch.reshape((1, n_input, n_features))
@@ -211,12 +211,21 @@ def ML(email,file):
          # print(current_batch)
          predictions.append(model.predict(current_batch)[0])
 
-   true_predictions = scaler.inverse_transform(predictions)
-
-   for i in true_predictions:
-      if i<0:
-         i=-i
-
+   scaled_predictions = scaler.inverse_transform(predictions)
+   print(scaled_predictions)
+   true_predictions=[]
+   
+   for y in range(0,len(scaled_predictions)):
+      
+      for i in scaled_predictions[y]:
+         # print(i)
+         if i<=0:
+            i=-i
+            true_predictions.append(i)
+            # print(i)
+         else:
+            true_predictions.append(i)
+   # print(true_predictions)
    Workbookname=np.random.randint(0,1000)
    workbook = xlsxwriter.Workbook(f'{Workbookname}.xlsx')
    worksheet = workbook.add_worksheet()

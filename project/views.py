@@ -121,7 +121,7 @@ def indexx(request):
    return render(request, 'indexx.html')
 
 def ML(email,file):
-   df=pd.read_csv(f"C:\\Users\\vishnu\\Desktop\\preddict\\Sales_Prediction\\media\\{file}")
+   df=pd.read_csv(f"C:\\Users\\DELL\\Desktop\\software project\\SemiFinal\\Sales_Prediction\\media\\{file}")
 
    df.columns=["Date","Holiday","Avg. % ad spend of gross revenue","Avg. % discount","Sales"]
 
@@ -166,7 +166,7 @@ def ML(email,file):
    model.summary()
 
    model.compile(loss=tf.keras.losses.mse,optimizer=tf.keras.optimizers.Adam(lr=0.001))
-   model.fit(generator,epochs=160,batch_size=30)
+   model.fit(generator,epochs=100,batch_size=30)
 
    first_eval_batch=final3[-n_input:,:,np.newaxis]
    current_batch = first_eval_batch.reshape((1, n_input, n_features))
@@ -212,6 +212,10 @@ def ML(email,file):
          predictions.append(model.predict(current_batch)[0])
 
    true_predictions = scaler.inverse_transform(predictions)
+
+   for i in true_predictions:
+      if i<0:
+         i=-i
 
    Workbookname=np.random.randint(0,1000)
    workbook = xlsxwriter.Workbook(f'{Workbookname}.xlsx')

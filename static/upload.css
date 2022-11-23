@@ -5,23 +5,20 @@
     font-family: "Kumbh Sans", sans-serif;
     scroll-behavior: smooth;
     /* background: rgb(201, 255, 210); */
-}
+  }
 
-body {
-    background: #9796f0;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #fbc7d4, #9796f0);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+body{
+    background: #9796f0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fbc7d4, #9796f0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+}
 
 /* nav{
     background: rgba(255, 255, 255, 1);
 } */
-
-.navbar {
+.navbar{
     /* background: rgb(33, 41, 54); */
     background: rgba(255, 255, 255, 1);
     /* position:static; */
@@ -33,11 +30,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
-}
+  }
 
 #navbar__logo {
     background-color: #ff8177;
-    background-image: linear-gradient(to top, rgb(116, 41, 198) 0%, #fc99ff 100%);
+    background-image: linear-gradient(to top, rgb(116 ,41, 198) 0%, #fc99ff 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -54,15 +51,16 @@ body {
     margin-top: 10px;
 }
 
-.upload__container {
+.upload__container{
     margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 
-.upload__container-heading h1 {
+.upload__container-heading h1{
     text-transform: capitalize;
     font-size: 150px;
     text-align: center;
@@ -75,31 +73,33 @@ background: linear-gradient(to right, #753a88, #cc2b5e);
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent; */
     color: black;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+
+    
+
 }
 
-.upload__container-heading p {
+.upload__container-heading p{
     text-align: center;
     font-size: 20px;
-    background: black;
+    background:black;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+    -moz-text-fill-color: transparent; 
 }
-
 
 /* upload area */
-
-.wrapper {
+.wrapper{
     width: 430px;
     margin-top: 5px;
-    border-radius: 5px;
-    padding: 30px;
+    border-radius: 5px; 
+    padding: 30px; 
     /* box-shadow: 4px 4px 4px 8px rgba(0,0,0,0.06); */
-}
+  }
 
-.wrapper form {
+  .wrapper form{
     height: 167px;
     display: flex;
     cursor: pointer;
@@ -109,22 +109,31 @@ background: linear-gradient(to right, #753a88, #cc2b5e);
     flex-direction: column;
     border-radius: 5px;
     border: 2px dashed #e20000;
-    box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.06);
-}
+    box-shadow: 4px 4px 4px 8px rgba(0,0,0,0.06);
+  }
 
-form {
+  form{
     color: rgb(235, 86, 75);
-}
-
-form i {
+  }
+  form i{
     font-size: 50px;
-}
+  }
 
-form p {
+  form p{
     margin-top: 15px;
     font-size: 18px;
-}
+  }
 
+  .file-temp {
+    opacity: 0;
+    width: 370px;
+    height: 25px;
+    position: relative;
+    top: 40px;
+    overflow: hidden;
+  }
+
+  
 .button {
     background: #FF4742;
     border: 1px solid #FF4742;
@@ -134,7 +143,7 @@ form p {
     color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
-    font-family: "proxima nova", sans-serif;
+    font-family:"proxima nova",sans-serif;
     font-size: 16px;
     font-weight: 800;
     line-height: 16px;
@@ -148,15 +157,17 @@ form p {
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: middle;
-}
-
-.button:hover,
-.button:active {
+    transition: transform .3s ease-out;
+  }
+  
+  .button:hover,
+  .button:active {
     background-color: initial;
     background-position: 0 0;
     color: #FF4742;
-}
-
-.button:active {
+    transform: scale(1.3);
+  }
+  
+  .button:active {
     opacity: .5;
-}
+  }

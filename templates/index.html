@@ -29,7 +29,7 @@
                     <a href="#about" class="navbar__links" id="about-page">About</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="#services" class="navbar__links" id="services-page">Contact</a>
+                    <a href="#help" class="navbar__links">Help</a>
                 </li>
                 {% if user.is_authenticated %}
                 <a href="indexx"><button class="upload__btn">Upload</button></a>
@@ -39,7 +39,7 @@
                 <i class="fa-solid fa-moon dark-mode__icon"></i>
                 <li class="navbar__login">
                     {% if user.is_authenticated %}
-                    <a href="logout" class="logout" id="logout">Logout</a>
+                    <a href="logout" class="login" id="logout">Logout</a>
                     {% else %}
                     <a href="login" class="login" id="login">Login</a>
                     {% endif %}
@@ -68,6 +68,7 @@
                     <br><p class="prediction__para">Accurately predicting the future is critical for any business. The relationship between inputs and outputs can be very complex, and historical information is often the key to unlocking it. What can your data tell you about potential outcomes, and the key indicators you should influence? <span class="highlight__text">Long short-term memory neural networks</span> provide intelligent, pattern recognition analysis of your organization’s data for sales forcasting.</p>
                 </span>
                 <img class="neural-network__img" src="{% static 'neural network pic.jpg.webp' %}" alt="">
+                
             </div>
         </div>
     </div>
@@ -105,14 +106,14 @@
             <div class="help__main-text">
                 <p>-> Organinize the data as per the given csv template</p>
                 <br>
-                <p>-> Sales is the target coloumn</p>
+                <p>-> Sales is the target column</p>
                 <br>
-                <p>-> Leave the rows empty in sales coloumn that are to be predicted</p>
+                <p>-> Leave the rows empty in sales column that are to be predicted</p>
                 <br>
                 <p>-> Choose the desired csv & click on upload.</p>
             </div>
             <div class="help__main-img">
-                <img src="./Final_template.jpg" alt="">
+                <img src="{% static 'Final_template.jpg' %}" alt="">
             </div>
         </div>
     </div>

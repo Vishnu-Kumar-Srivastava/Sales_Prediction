@@ -23,6 +23,7 @@
     <div class="upload__container">
         <div class="upload__container-heading">
             <h1>Upload your file</h1>
+            <p> Kindly read help section in main page for format info</p>
             <p>[Do make sure file is of the form .csv]</p>
         </div>
         <div class="wrapper">
@@ -32,9 +33,9 @@
                  <form method="POST" action="indexx" enctype="multipart/form-data" >
                     {% csrf_token %}
                     <!-- <input type="file" name="document" id="document" required="required"> -->
-                    <input  type="file"  name="document" id= "document" hidden>
+                    <input  type="file"  name="document" id= "document" hidden >
                     <div class="choose-file__input">
-                        <input type="file" name="document" id= "document" class="file-temp">
+                        <input type="file" name="document" id= "document" required class="file-temp">
                     </div>
                 <i class="fas fa-cloud-upload-alt"></i>
                 <p>Browse File to Upload</p>

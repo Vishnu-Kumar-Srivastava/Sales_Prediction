@@ -116,13 +116,16 @@ def indexx(request):
          #know where to save the file
          d = os.getcwd() #current directory of the project
          file_directory = d+'\media\\'+name
+         
          ML(request.user.email,uploaded_file.name)
          return redirect(index)
-      
+      else:
+         messages.info(request, 'Uploaded file is not in .csv form')
+         return redirect('indexx')
    return render(request, 'indexx.html')
 
 def ML(email,file):
-   df=pd.read_csv(f"C:\\Users\\DELL\\Desktop\\software project\\SemiFinal\\Sales_Prediction\\media\\{file}")
+   df=pd.read_csv(f"C:\\Users\\vishnu\\Desktop\\software\\Sales_Prediction\\media\\{file}")
 
    df.columns=["Date","Holiday","Avg. % ad spend of gross revenue","Avg. % discount","Sales"]
 
